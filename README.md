@@ -195,6 +195,8 @@ environment variables - select * from assetbundles.information_schema.columns
 lets create environment variables within databricks.yml
 create a job
 
+<img width="1220" height="500" alt="image" src="https://github.com/user-attachments/assets/934efafa-01a8-4f72-aaef-d009c1eec034" />
+
 Lets use asset bundles environment variables
 in databricks.yml 
 
