@@ -172,6 +172,74 @@ Similar to git
 
 You need to have a git hub rep - attach local repo with remote repo (git hub is a remote repo)
 
+Databricks > settings > linked accounts 
+1. link git account (easy to set up)
+2. personal access token 
+
+
+In workspace> you need to create something called as git folders
+copy git htps for cloning purpose
+
+error: you cannot create branch 
+reason is? install databricks application
+
+
+Create a demo notebook (attach a cluster) - inorder to use web terminal we need to access terminal through cluster.
+
+
+You will have so many variables
+lets say - catalogs (bronze,silver,gold)
+environment variables - select * from assetbundles.information_schema.columns
+
+
+lets create environment variables within databricks.yml
+create a job
+
+Lets use asset bundles environment variables
+in databricks.yml 
+
+Best practices is to in databricks.yml file 
+or some create in resources/variables folder
+
+substititutions and variables
+1. create the variable
+2. refer the variable in jobs
+
+
+DLT pipeline (delta live table in bundles)
+create the dlt > move the root folder to asset bundle folder 
+
+Copy the yaml of the pipeline and 
+yaml - root_path: root_path is the root of dlt (whole project)
+
+ dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    presets:
+      name_prefix: dev_${workspace.current_user.short_name}
+      source_linked_deployment: false
+
+to deploy it : open web terminal
+
+Override our parameters during deployment
+variable parameters
+
+atabricks bundle deploy --target prod --var="catalog_name=assetbundles_prod"
+
+<img width="1220" height="500" alt="image" src="https://github.com/user-attachments/assets/9c48e00a-54fa-4118-936d-be443bac7b61" />
+
+
+Destroying bundle
+1. It will truncate .bundle folder
+2. it will destroy all the pipelines and jobs
+
+# databricks bundle destroy -h 
+
+
 
 
 
